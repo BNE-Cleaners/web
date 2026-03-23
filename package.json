@@ -1,18 +1,19 @@
 {
-  "name": "bnecleaners",
-  "version": "1.0.0",
-  "description": "Web SPA for BNE Cleaners",
-  "scripts": {
-    "dev": "pnpm parcel index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.32.1",
-  "devDependencies": {
-    "@parcel/transformer-elm": "2.16.4",
-    "elm": "0.19.1-6",
-    "parcel": "^2.16.4"
-  }
+    "name": "bnecleaners",
+    "version": "1.0.0",
+    "description": "Web SPA for BNE Cleaners",
+    "scripts": {
+        "dev": "pnpm parcel index.html static/*.jpg",
+        "build": "rm -rf dist/ && pnpm parcel build index.html && cp -r static/ dist/",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@10.32.1",
+    "devDependencies": {
+        "@parcel/transformer-elm": "2.16.4",
+        "elm": "0.19.1-6",
+        "parcel": "^2.16.4"
+    }
 }
