@@ -25,6 +25,7 @@
             nixd
             alejandra
             pnpm
+            lessc
             elmPackages.elm
             elmPackages.elm-language-server
             elmPackages.nodejs

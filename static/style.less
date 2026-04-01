@@ -1,0 +1,137 @@
+@font-face {
+    font-family: AtkinsonHyperlegible;
+    src: url(./fonts/AtkinsonHyperlegible-Regular.ttf);
+}
+
+:root {
+    --bg-primary: #ABB5A2;
+    --bg-secondary: #F5F5F5;
+    --fg-primary: #000000;
+    --fg-secondary: #0f1e1e;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: AtkinsonHyperlegible;
+    background-color: var(--bg-secondary);
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    padding: 2rem 4rem 6rem 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 80%;
+    background-color: var(--bg-primary);
+}
+
+.footer {
+    background-color: var(--fg-primary);
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0 1rem 0;
+}
+
+.footer-text {
+    font-size: 0.8rem;
+    color: var(--bg-secondary);
+}
+
+.hero > img {
+    max-width: 100%;
+    height: auto;
+    margin: 0.5rem 0;
+    // border: 0.2rem solid var(--fg-secondary);
+}
+
+#nav-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+#nav-items {
+    display: flex;
+    width: 35%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
+    border: 0;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    transition: background-color 0.4s;
+}
+
+#nav-items > button:hover {
+    background-color: var(--bg-secondary);
+}
+
+.nav-item-active {
+    background-color: var(--bg-secondary);
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+    border: 0;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    transition: background-color 0.4s;
+}
+
+#nav-right > button {
+    background-color: var(--fg-primary);
+    color: var(--bg-secondary);
+    padding: 1rem 3.5rem 1rem  3.5rem;
+    font-size: 1.2rem;
+    border-radius: 2rem;
+}
+
+@media screen and (max-width: 897px) {
+    #nav-items {
+	flex-direction: column;
+    }
+    .header {
+	padding: 1rem 2rem 6rem 2rem;
+    }
+    #nav-items {
+	visibility: hidden;
+    }
+} 
