@@ -17,7 +17,25 @@ newsPage: Model -> Html Msg
 newsPage model = div [] []
 
 aboutUsPage: Model -> Html Msg
-aboutUsPage model = div [] []
+aboutUsPage model = 
+    div [] [
+        div[class "hero"][
+            img [id "hero-image"
+                ,src "./static/glass_clean.jpg"
+                ,alt "Hero image"][]
+        ],
+        div[class "aboutUsReviewBubble"][
+            div[class "aboutUsReviewPage"][
+                div[class "aboutUsPfp"][
+                    text "pfp placeholder"
+                    ]
+                ],
+                div[class "aboutTextReview", style "background-color" "aliceblue"][
+                    text "this needs to be linked to google gsfdgsfg fsdgsfgs sfgsfdgs review database or smth"
+                    ]
+            ]
+        ]
+
 
 -- Needs to be a form which takes User details.
 -- Pop up alert() with functional form validation with text boxes

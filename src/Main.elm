@@ -4,7 +4,7 @@ import Browser
 import Html exposing (Html, header, footer, button, div, text, a, img)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
-import Pages exposing (homePage)
+import Pages exposing (homePage, aboutUsPage, newsPage)
 import Types exposing (..)
 
 main =
@@ -38,8 +38,14 @@ view model =
                   ],
               div [id "nav-right"] [button [id "book-a-clean-btn"] [text "Book a Clean"]]    
       ],
-             (if model.page == Home then homePage model else div [] []),
-             footer [class "footer"] [
-                  div [class "footer-text"] [text "Copyright Reserved 2026"]
-                 ]
+--updates to homepage
+        (if model.page == Home then homePage model
+--updates to about Us page
+         else if model.page == AboutUs then aboutUsPage model
+         else if model.page == News then newsPage model
+         else div [][]),
+        footer [class "footer"] [
+            div [class "footer-text"] [text "Copyright Reserved 2026"]
+                ]
+
         ]
