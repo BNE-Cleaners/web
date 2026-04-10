@@ -4,6 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Types exposing (Model, Msg)
 
+
 homePage: Model -> Html Msg
 homePage model =
     div [class "hero"] [
@@ -18,23 +19,49 @@ newsPage model = div [] []
 
 aboutUsPage: Model -> Html Msg
 aboutUsPage model = 
+    
     div [] [
         div[class "hero"][
             img [id "hero-image"
                 ,src "./static/glass_clean.jpg"
                 ,alt "Hero image"][]
         ],
-        div[class "aboutUsReviewBubble"][
-            div[class "aboutUsReviewPage"][
-                div[class "aboutUsPfp"][
-                    text "pfp placeholder"
+        div[class "aboutus-container"][
+            div[class "review-post"][
+                    img [id "profile-image"
+                        ,src "./static/demo_pfp.png"
+                        ,alt "profile image"][]
+                    ,div[class "review-text"][
+                        text "this needs to be linked to google gsfdgsfg fsdgsfgs sfgsfdgs review database or smth"
+                        ]
+                    ],
+            div[class "review-post"][
+                    img [id "profile-image"
+                        ,src "./static/demo_pfp.png"
+                        ,alt "profile image"][]
+                    ,div[class "review-text"][
+                        text "this needs to be linked to google gsfdgsfg fsdgsfgs sfgsfdgs review database or smth"
+                        ]
                     ]
-                ],
-                div[class "aboutTextReview", style "background-color" "aliceblue"][
-                    text "this needs to be linked to google gsfdgsfg fsdgsfgs sfgsfdgs review database or smth"
-                    ]
+                    ,            div[class "review-post"][
+                    img [id "profile-image"
+                        ,src "./static/demo_pfp.png"
+                        ,alt "profile image"][]
+                    ,div[class "review-text"][
+                        text "this needs to be linked to google gsfdgsfg fsdgsfgs sfgsfdgs review database or smth"
+                        ]
+                    ] 
+                    ,            div[class "review-post"][
+                    img [id "profile-image"
+                        ,src "./static/demo_pfp.png"
+                        ,alt "profile image"][]
+                    ,div[class "review-text"][
+                        text "this needs to be linked to google gsfdgsfg fsdgsfgs sfgsfdgs review database or smth"
+                        ]
+                    ]          
+                ]
             ]
-        ]
+            
 
 
 -- Needs to be a form which takes User details.

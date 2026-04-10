@@ -128,51 +128,48 @@ input, button, textarea, select {
 }
 // about Us page styles //
 
-.aboutUsReviewBubble {
-    padding: 2rem 0.5rem 2rem 2rem;
-    width:  60%;
-    min-width: 30%;
-    color: #000000;
+.aboutus-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 0.5rem;
+    gap: 1rem;
+    justify-content: space-around; /* Space between every child side-by-side */
+}
+
+
+.review-post {
+    padding: 1rem;
     background-color: #ABB5A2;
-    margin: auto;
+    color: #000000;
     border-radius: 2rem;
-    height: fit-content;
-    overflow: hidden;
     display: flex;
     gap: 1rem;
-    align-content: flex-end;
-    
+    justify-content: space-between;
 }
-.aboutUsPfp{
-    background-color: #000000;
+#profile-image{
     color: aliceblue;
+    background-color: black;
     border-radius: 50%;
     width: 4rem;
     height: 4rem;
-    justify-content: center;
-    padding: 1rem 2rem 1rem 1rem;
-    float: left;
     text-align: center;
     font-size: 10px;
+    max-width: 10rem;
+    align-self: center;
 }
 
-.aboutTextReview{
+.review-text{
     text-align: center;
-
     color: black;
-
-    padding: 1rem 2rem 1rem 1rem;
-    border-radius: 2rem;
-    float: right;
+    background-color: antiquewhite;
+    border-radius: 1rem;
     font-size: 14px;
-    position: relative;
-    right: 0;
     max-width: 60%;
+    overflow: hidden;
+}
 
-}
-.outerBorder{
-    padding: 1rem 1rem 1rem 1rem;
-}
+
+
 
 @media screen and (max-width: 897px) {
     #nav-items {
@@ -183,5 +180,9 @@ input, button, textarea, select {
     }
     #nav-items {
 	visibility: hidden;
+    }
+    .aboutus-container {
+    grid-template-columns: auto auto;
+    
     }
 } 
