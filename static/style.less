@@ -3,11 +3,16 @@
     src: url(./fonts/AtkinsonHyperlegible-Regular.ttf);
 }
 
+@font-face {
+    font-family: AtkinsonHyperlegibleBold;
+    src: url(./fonts/AtkinsonHyperlegible-Bold.ttf);
+}
+
 :root {
     --bg-primary: #ABB5A2;
     --bg-secondary: #F5F5F5;
     --fg-primary: #000000;
-    --fg-secondary: #0f1e1e;
+    --fg-secondary: #707070;
     --fg-links: #6B7FC2;
 }
 
@@ -224,6 +229,69 @@ input, button, textarea, select {
   width: 1rem;
 }
 
+// Maintainance Page
+.maintainance-container {
+    background-color: #e1e1e1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.maintainance-logo {
+    max-width: 30%;
+}
+
+.maintainance-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maintainance-heading {
+    display: flex;
+    font-size: 3rem;
+    font-family: AtkinsonHyperlegibleBold;
+}
+
+.maintainance-subheading {
+    font-size: 1.5rem;
+    color: var(--fg-secondary);
+}
+
+.maintainance-plug {
+    min-width: 100%;
+}
+.maintainance-footer-spacer {
+    width: 100%;
+    padding: .1rem;
+    background-color: var(--bg-primary);
+}
+.maintainance-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+}
+.maintainance-footer-content {
+    font-weight: 800;
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+}
+.maintainance-bubble {
+    border-radius: 1rem;
+    padding: 0 .5rem;
+    display: flex;
+    gap: 0.5rem;
+    background-color: rgba(100,100,100,0.2);
+}
+.maintainance-icon {
+    max-width: 2rem;
+}
+
 
 @media screen and (max-width: 897px) {
     #nav-items {
@@ -236,7 +304,20 @@ input, button, textarea, select {
 	visibility: hidden;
     }
     .aboutus-container {
-    grid-template-columns: auto auto;
-    
+	grid-template-columns: auto auto;
     }
 } 
+
+@media screen and (max-width: 580px) {
+    .maintainance-footer-content {
+	flex-direction: column;
+    }
+
+.maintainance-text {
+    padding-left: 1rem;
+    align-items: flex-start;
+}
+.maintainance-heading {
+    display: flex;
+}
+}

@@ -4,11 +4,11 @@ import Browser
 import Html exposing (Html, h1, header, footer, button, div, text, a, img)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
-import Pages exposing (homePage, aboutUsPage, newsPage)
+import Pages exposing (homePage, aboutUsPage, newsPage, maintainancePage)
 import Types exposing (..)
 
 main =
-  Browser.sandbox { init = init, update = update, view = view }
+  Browser.sandbox { init = init, update = update, view = maintainanceView}
 
 init : Model
 init = {page = Home}
@@ -18,6 +18,10 @@ update msg model =
   case msg of
     SwitchToPage new_page ->
       {model | page = new_page}
+
+maintainanceView : Model -> Html Msg
+maintainanceView model =
+    maintainancePage model
 
 view : Model -> Html Msg
 view model =
@@ -39,7 +43,7 @@ view model =
           div [id "nav-right"] [button [id "book-a-clean-btn"] [text "Book a Clean"]]]
           ,div [class "hero"] [
             img [id "hero-image"
-            ,src "./static/glass_clean.jpg"
+            ,src "./static/images/glass_clean.jpg"
             ,alt "Hero image"] []
             ]
           ,(if model.page == Home then homePage model
