@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Web SPA for BNE Cleaners",
     "scripts": {
-        "dev": "pnpm parcel index.html static/*.jpg static/*.png static/*.css",
+        "dev": "pnpm parcel index.html static/images/*.jpg static/images/*.png static/icons/*.svg static/*.css",
         "build": "rm -rf dist/ && pnpm parcel build index.html && cp -r static/ dist/",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
