@@ -1,11 +1,24 @@
 module Types exposing (..)
 
-type Pages
+import Browser
+import Browser.Navigation as Nav
+import Url
+
+
+type Route
     = Home
     | News
     | AboutUs
-      
-type alias Model = {page: Pages}
+    | NotFound
+
+
+type alias Model =
+    { key : Nav.Key
+    , url : Url.Url
+    , route : Route
+    }
+
 
 type Msg
-  = SwitchToPage Pages
+    = LinkClicked Browser.UrlRequest
+    | UrlChanged Url.Url
