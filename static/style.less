@@ -17,11 +17,14 @@
 @text-light: hsl(138 38% 9%);
 @text-dark: hsl(135 100% 98%);
 
-@text-alternate-light: hsl(140 39% 31%);
-@text-alternate-dark: hsl(165 20% 88%);
+@text-sec-light: hsla(138 38% 9%, 60%);
+@text-sec-dark: hsla(135 100% 98%, 60%);
 
 @accent-light: hsl(16 64% 65%);
 @accent-dark: hsl(16 64% 85%);
+
+@accent-sec-light: hsl(140 39% 31%);
+@accent-sec-dark: hsl(165 20% 88%);
 
 @hyperlink-light: hsl(200 100% 40%);
 @hyperlink-dark: hsl(200 100% 80%);
@@ -29,8 +32,11 @@
 :root {
     color-scheme: light dark;
     --bg-color: light-dark(@bg-light,@bg-dark);
+    --bg-sec-color: light-dark(@bg-alternate-light,@bg-alternate-dark);
     --text-color: light-dark(@text-light,@text-dark);
+    --text-sec-color: light-dark(@text-sec-light,@text-sec-dark);
     --accent-color: light-dark(@accent-light,@accent-dark);
+    --accent-sec-color: light-dark(@accent-sec-light,@accent-sec-dark);
     --link-color: light-dark(@hyperlink-light,@hyperlink-dark);
 }
 
@@ -74,7 +80,7 @@ a:hover {
 }
 
 .header {
-    padding: 2rem;
+    padding: 2rem 4rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -128,13 +134,49 @@ a:hover {
     max-width: 90%;
 }
 
-.nav-logo {
+.about-logo, .nav-logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     line-height: 2rem;
+}
+
+.about-logo {
+    font-size: 4rem;
+    line-height: 4rem;
+    background-image: url("./images/glass_clean.png");
+    background-position: 50% 80%;
+    border-radius: 1rem;
+    padding: 6rem 12rem;
+}
+
+.book-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border: none;
+    padding: 0 4rem;
+    color: var(--text-color)
+}
+
+.form-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 100%
+}
+
+.form-add-notes {
+    min-height: 10vh;
+}
+
+.book-form-container > * > textarea, .book-form-container > * > input {
+    min-width: 80%;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-radius: 1rem;
 }
 
 .nav-items {
@@ -178,21 +220,156 @@ a:hover {
     background-color: var(--text-color);
 }
 
-.nav-hamburger {
-    display: none;
-}
-
-.aboutus-container {
-    display: grid;
-    gap: 1rem;
-    justify-content: space-around;
-    grid-template-columns: auto auto auto;
-}
-
-.home-container {
-    gap: 1rem;
+.aboutus-container, .home-container {
+    padding: 1rem 4rem;
     display: flex;
     flex-direction: column;
+    gap: 4rem;
+}
+
+.aboutus-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.aboutus-title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.aboutus-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    min-width: 80%;
+}
+
+.aboutus-icon {
+    max-width: 20%;
+}
+
+.aboutus-icon > img {
+   width: 100%;
+   aspect-ratio: 1 / 1;
+   object-fit: cover; /* or: contain */
+   display: block;
+   border-radius: 1rem;
+}
+
+.home-catchline{
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-subcatchline{
+  width: min(1000px, 92vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 2rem clamp(1.25rem, 3vw, 2rem);
+
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  line-height: 1.15;
+  font-family: AtkinsonHyperlegibleBold;
+
+  background: color-mix(in srgb, var(--bg-sec-color) 65%, transparent);
+  border-top: 0.35rem solid var(--accent-sec-color);
+  border-bottom: 0.35rem solid var(--accent-sec-color);
+  border-left: 0;
+  border-right: 0;
+
+  border-radius: 1.25rem;
+
+  box-shadow:
+    0 10px 30px color-mix(in srgb, var(--bg-sec-color) 35%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--accent-sec-color) 25%, transparent);
+}
+
+.home-subcatchline > *{
+  text-align: center;
+  color: var(--text-color);
+}
+
+/* If you have two lines as children (e.g., h1 + p), make the first one pop */
+.home-subcatchline > :first-child{
+  color: var(--text-color);
+  letter-spacing: 0.01em;
+}
+
+.home-subcatchline > :last-child{
+  font-family: AtkinsonHyperlegible;
+  font-weight: 400;
+  font-size: 0.62em;
+  color: var(--text-sec-color);
+}
+
+.services-title {
+    font-size: 2rem;
+    font-family: AtkinsonHyperlegibleBold;
+}
+
+.services-cards {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4rem;
+}
+
+// Card
+.card-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tag {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: max-content;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    background-color: var(--bg-sec-color);
+}
+
+.card-tag-dot {
+    min-width: 1rem;
+    min-height: 1rem;
+    border-radius: 100%;
+    background-color: var(--accent-color);
+}
+
+.card-tag-text {
+    text-wrap: nowrap;
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.card-description {
+    color: var(--text-sec-color);
+}
+
+.card-image-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-image {
+    max-width: 50%;
+    max-height: 90%;
+    border-radius: 1rem;
 }
 
 // Maintainance Page
@@ -270,8 +447,17 @@ a:hover {
     #hero-image {
 	max-width: 100%;
     }
-    .nav-hamburger, .nav-logo {
+    .nav-logo {
 	.display-off()
+    }
+    .header {
+	padding: 2rem 2rem;
+    }
+    .home-container {
+	padding: 0 2rem;
+    }
+    .services-cards {
+	grid-template-columns: auto;
     }
     .aboutus-container {
 	grid-template-columns: auto auto;
@@ -279,14 +465,21 @@ a:hover {
 } 
 
 @media screen and (max-width: 620px) {
-    .nav-hamburger {
+    .nav-items {
 	.display-on()
     }
-    .nav-items {
-	.display-off()
+    .header {
+	padding: 2rem 2rem;
     }
+    .home-container {
+	padding: 0 2rem;
+    }
+    .aboutus-icon > img {border-radius: 0.1rem;}
     .footer-items {
 	grid-template-columns: auto auto;
+    }
+    .services-cards {
+	grid-template-columns: auto;
     }
     .maintainance-footer-content {
 	flex-direction: column;

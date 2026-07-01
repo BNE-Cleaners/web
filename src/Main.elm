@@ -2,14 +2,15 @@ module Main exposing (..)
 
 -- import Pages.Maintainance
 -- import Pages.Services
+-- import Pages.News
 
 import Browser
 import Browser.Navigation as Nav
 import Components exposing (footer, hero, navbar)
 import Html exposing (div)
 import Pages.AboutUs
+import Pages.BookForm
 import Pages.Home
-import Pages.News
 import Types exposing (..)
 import Url
 import Url.Parser
@@ -29,7 +30,7 @@ main =
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Model key url (parseRoute url)
+    ( Model key url (parseRoute url) "" "" "" General ""
     , Cmd.none
     )
 
@@ -37,6 +38,21 @@ init flags url key =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        Name n ->
+            ( { model | name = n }, Cmd.none )
+
+        Email e ->
+            ( { model | email = e }, Cmd.none )
+
+        Phone p ->
+            ( { model | phone = p }, Cmd.none )
+
+        Cleaning t ->
+            ( { model | cleaning = t }, Cmd.none )
+
+        Message m ->
+            ( { model | message = m }, Cmd.none )
+
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
@@ -58,7 +74,9 @@ route : Url.Parser.Parser (Route -> a) a
 route =
     Url.Parser.oneOf
         [ Url.Parser.map Home Url.Parser.top
-        , Url.Parser.map News (Url.Parser.s "news")
+
+        -- , Url.Parser.map News (Url.Parser.s "news")
+        , Url.Parser.map BookClean (Url.Parser.s "bookclean")
         , Url.Parser.map AboutUs (Url.Parser.s "aboutus")
         ]
 
@@ -78,7 +96,20 @@ view model =
     { title = "BNE Cleaners"
     , body =
         [ navbar model
-        , hero model
+        , case model.route of
+            Home ->
+                hero model
+
+            AboutUs ->
+                div [] []
+
+            BookClean ->
+                div [] []
+
+            -- News ->
+            --     div [] []
+            NotFound ->
+                div [] []
         , case model.route of
             Home ->
                 Pages.Home.view model
@@ -86,9 +117,11 @@ view model =
             AboutUs ->
                 Pages.AboutUs.view model
 
-            News ->
-                Pages.News.view model
+            BookClean ->
+                Pages.BookForm.view model
 
+            -- News ->
+            --     Pages.News.view model
             NotFound ->
                 div [] []
         , footer model

@@ -3,7 +3,7 @@ module Components exposing (..)
 import Browser.Navigation exposing (pushUrl)
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, onInput)
 import Task
 import Types exposing (..)
 
@@ -17,9 +17,11 @@ routeToHref route =
         AboutUs ->
             "/aboutus"
 
-        News ->
-            "/news"
+        BookClean ->
+            "/bookclean"
 
+        -- News ->
+        --     "/news"
         NotFound ->
             "/"
 
@@ -33,9 +35,11 @@ routeToString route =
         AboutUs ->
             "aboutus"
 
-        News ->
-            "news"
+        BookClean ->
+            "bookclean"
 
+        -- News ->
+        --     "news"
         NotFound ->
             "home"
 
@@ -65,20 +69,13 @@ navbar model =
             [ div [] [ text "BNE" ]
             , div [] [ text "CLEANERS" ]
             ]
-        , div [ class "nav-hamburger" ]
-            [ img
-                [ class "nav-hamburger"
-                , src "./static/icons/menu.svg"
-                , alt "Menu"
-                ]
-                []
-            ]
         , div [ class "nav-items" ]
             [ navbarLink model Home "Home"
             , navbarLink model AboutUs "About Us"
-            , navbarLink model News "News"
+
+            -- , navbarLink model news "News"
             ]
-        , div [ class "nav-right" ] [ button [ id "book-a-clean-btn" ] [ text "Book a Clean" ] ]
+        , div [ class "nav-right" ] [ a [ href "mailto:info@bnecleaners.com.au" ] [ button [ id "book-a-clean-btn" ] [ text "Book a Clean" ] ] ]
         ]
 
 
@@ -148,7 +145,7 @@ hero model =
     div [ class "hero" ]
         [ img
             [ id "hero-image"
-            , src "./static/images/glass_clean.jpg"
+            , src "./static/images/glass_clean.png"
             , alt "Hero image"
             ]
             []
@@ -172,7 +169,7 @@ card title description tag_description extra_html_classes images =
             , div [ class "card-tag-text" ]
                 [ text
                     (String.concat
-                        [ "Perfect for"
+                        [ "Perfect for "
                         , tag_description
                         ]
                     )
