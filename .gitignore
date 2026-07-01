@@ -160,3 +160,8 @@ vite.config.ts.timestamp-*
 elm-stuff
 # elm-repl generated files
 repl-temp-*
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
