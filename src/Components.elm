@@ -22,6 +22,10 @@ routeToHref route =
 
         -- News ->
         --     "/news"
+
+
+        PrivacyPolicy -> "/privacypolicy"
+
         NotFound ->
             "/"
 
@@ -40,6 +44,9 @@ routeToString route =
 
         -- News ->
         --     "news"
+
+        PrivacyPolicy -> "privacypolicy"
+
         NotFound ->
             "home"
 
@@ -78,6 +85,15 @@ navbar model =
         , div [ class "nav-right" ] [ a [ href "mailto:info@bnecleaners.com.au" ] [ button [ id "book-a-clean-btn" ] [ text "Book a Clean" ] ] ]
         ]
 
+viewPdf : String -> Html msg
+viewPdf pdfUrl =
+    div [ style "width" "100%"
+        , style "height" "100vh"] [ Html.node "embed"
+            [ src pdfUrl
+            , attribute "type" "application/pdf"
+            , style "width" "100%"
+            , style "height" "100%"
+            ] []]
 
 footerLink : Model -> Route -> String -> Html Msg
 footerLink model route label =
@@ -115,7 +131,7 @@ footer model =
             , div [ class "footer-item" ]
                 [ h1 [] [ text "Quick Links" ]
                 , div [ class "footer-links" ]
-                    [ footerLink model NotFound "Privacy Policy"
+                    [ footerLink model PrivacyPolicy "Privacy Policy"
                     , footerLink model NotFound "Terms Of Services"
                     , footerLink model NotFound "FAQ"
                     , footerLink model NotFound "About Us"

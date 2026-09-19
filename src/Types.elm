@@ -10,6 +10,7 @@ type Route
     | AboutUs
     | NotFound
     | BookClean
+    | PrivacyPolicy
 
 
 
