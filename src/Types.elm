@@ -11,6 +11,7 @@ type Route
     | NotFound
     | BookClean
     | PrivacyPolicy
+    | TermsofService
 
 
 

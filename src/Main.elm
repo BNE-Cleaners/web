@@ -77,6 +77,7 @@ route =
 
         -- , Url.Parser.map News (Url.Parser.s "news")
         , Url.Parser.map PrivacyPolicy (Url.Parser.s "privacypolicy")
+        , Url.Parser.map TermsofService (Url.Parser.s "termsofservice")
         , Url.Parser.map BookClean (Url.Parser.s "bookclean")
         , Url.Parser.map AboutUs (Url.Parser.s "aboutus")
         ]
@@ -112,6 +113,8 @@ view model =
 
             PrivacyPolicy -> div [] []
 
+            TermsofService -> div [] []
+
             NotFound ->
                 div [] []
         , case model.route of
@@ -129,6 +132,10 @@ view model =
 
             PrivacyPolicy ->
                 (Components.viewPdf "./static/BNECleanersPrivacypolicy.pdf")
+
+            TermsofService ->
+                (Components.viewPdf "./static/TOS.pdf")
+            
 
             NotFound ->
                 div [] []
