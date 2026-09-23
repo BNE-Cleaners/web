@@ -26,6 +26,8 @@ routeToHref route =
 
         PrivacyPolicy -> "/privacypolicy"
 
+        TermsofService -> "/termsofservice"
+
         NotFound ->
             "/"
 
@@ -46,6 +48,8 @@ routeToString route =
         --     "news"
 
         PrivacyPolicy -> "privacypolicy"
+
+        TermsofService -> "termsofservice"
 
         NotFound ->
             "home"
@@ -132,7 +136,7 @@ footer model =
                 [ h1 [] [ text "Quick Links" ]
                 , div [ class "footer-links" ]
                     [ footerLink model PrivacyPolicy "Privacy Policy"
-                    , footerLink model NotFound "Terms Of Services"
+                    , footerLink model TermsofService "Terms Of Services"
                     , footerLink model NotFound "FAQ"
                     , footerLink model NotFound "About Us"
                     , footerLink model NotFound "Contact Us"
