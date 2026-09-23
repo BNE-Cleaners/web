@@ -161,7 +161,7 @@ hero model =
     div [ class "hero" ]
         [ img
             [ id "hero-image"
-            , src "./static/images/glass_clean.png"
+            , src "./static/images/glass_clean.webp"
             , alt "Hero image"
             ]
             []

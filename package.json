@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Web SPA for BNE Cleaners",
   "scripts": {
-    "dev": "pnpm parcel index.html static/images/*.jpg static/images/*.png static/icons/*.svg static/*.css",
+    "dev": "pnpm parcel index.html static/images/*.webp static/icons/*.svg static/*.css",
     "build": "rm -rf dist/ && pnpm parcel build index.html && cp -r static/ dist/",
+    "buildwindows": "pnpm parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "pnpm run build && wrangler deploy",
     "preview": "pnpm run build && wrangler dev"

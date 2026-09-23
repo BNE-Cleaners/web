@@ -10,7 +10,7 @@ view model =
     div [ class "maintainance-container" ]
         [ img
             [ class "maintainance-logo"
-            , src "./static/images/logo.png"
+            , src "./static/images/logo.webp"
             , alt "BNECLEANERS logo"
             ]
             []
@@ -52,7 +52,7 @@ view model =
                         , alt "Email"
                         ]
                         []
-                    , text "info@bnecleaners.com.au"
+                    , text "bnecleaneraus@gmail.com"
                     ]
                 ]
             ]
